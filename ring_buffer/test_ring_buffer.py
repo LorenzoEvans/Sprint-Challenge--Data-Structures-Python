@@ -12,6 +12,7 @@ class RingBufferTests(unittest.TestCase):
         self.buffer.append('b')
         self.buffer.append('c')
         self.buffer.append('d')
+        print('storage:', self.buffer.storage)
         self.assertEqual(len(self.buffer.storage), 5)
         self.assertEqual(self.buffer.get(), ['a', 'b', 'c', 'd'])
 
