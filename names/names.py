@@ -11,11 +11,22 @@ names_2 = f.read().split("\n")  # List containing 10000 names
 f.close()
 
 duplicates = []
-for name_1 in names_1:
-    cur_name = name_1
-    for name_2 in names_2:
-        if name_1 == name_2:
-            duplicates.append(name_1)
+def de_dupe():
+    cur_name = ""
+    cur_name_2 = ""
+    name_set1_len = len(names_1)
+    i = 0
+    while name_set1_len > i:
+        print(len(names_1))
+        cur_name = names_1[i]
+        for name_2 in names_2:
+            j = i
+            cur_name_2 = names_2[j]
+            if cur_name == cur_name_2:
+                duplicates.append(cur_name_2)
+            j -= 1
+        i += 1
+    return duplicates
 
 end_time = time.time()
 print(f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
